@@ -1,8 +1,9 @@
 <script>
-import { RouterView, RouterLink } from 'vue-router'
-import InputSearch from '@/components/InputSearch.vue'
-import ProfileCard from '@/components/ProfileCard.vue'
-import ChatItem from '@/components/ChatItem.vue'
+import { RouterView, RouterLink } from 'vue-router';
+import InputSearch from '@/components/InputSearch.vue';
+import ProfileCard from '@/components/ProfileCard.vue';
+import ChatItem from '@/components/ChatItem.vue';
+import store from '@/store/store.js';
 
 export default {
   components: {
@@ -27,7 +28,8 @@ export default {
         { id: 4, name: 'Proyecto 1', messages: 24 },
         { id: 5, name: 'Non-work', messages: null },
         { id: 6, name: 'Atención a clientes', messages: 120 }
-      ]
+      ],
+      store
     }
   },
 
@@ -40,7 +42,7 @@ export default {
     <InputSearch v-model="search" />
     <ProfileCard
       :avatar="profile.avatar"
-      :username="profile.username"
+      :username="store.username"
       :status="profile.status"
     />
     <RouterLink to="/" class="channels-title">Canales <Icon icon="carbon:hashtag" /></RouterLink>
