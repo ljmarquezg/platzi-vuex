@@ -5,6 +5,11 @@ const store = createStore({
     return {
       username: 'Current User'
     }
+  },
+  getters: {
+    getUsername(state) {
+      return state.username.split(' ')[0]
+    }
   }
 })
 
