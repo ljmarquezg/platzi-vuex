@@ -3,7 +3,7 @@ import { RouterLink, RouterView } from 'vue-router';
 import InputSearch from '@/components/InputSearch.vue';
 import ProfileCard from '@/components/ProfileCard.vue';
 import ChatItem from '@/components/ChatItem.vue';
-import { mapState } from 'vuex';
+import { mapGetters, mapState } from 'vuex';
 
 export default {
   components: {
@@ -39,7 +39,8 @@ export default {
      })
      */
     // Para evitar inconvenientes se puede utilizar la opción shortHand donde se mapea la variable username del store
-    ...mapState(['username'])
+    ...mapState (['username']),
+    ...mapGetters(['getUsername'])
   }
 
 }
@@ -51,7 +52,7 @@ export default {
       <InputSearch v-model="search"/>
       <ProfileCard
           :avatar="profile.avatar"
-          :username="username"
+          :username="getUsername"
           :status="profile.status"
       />
       <RouterLink
