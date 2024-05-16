@@ -8,7 +8,12 @@ const store = createStore({
   },
   getters: {
     getUsername(state) {
-      return state.username.split(' ')[0]
+      return state.username
+    }
+  },
+  mutations: {
+    updateUsername(state, newUsername) {
+      state.username = newUsername
     }
   }
 })
