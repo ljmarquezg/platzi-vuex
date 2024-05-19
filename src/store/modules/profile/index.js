@@ -1,10 +1,10 @@
-import { COMMIT_UPDATE_USERNAME } from "@/common/mutation-types";
+import { COMMIT_UPDATE_STATUS, COMMIT_UPDATE_USERNAME } from "@/common/mutation-types";
 import { getUser } from "@/api";
 
 const profile = {
   state() {
     return {
-      username: "magolujo",
+      username: ""
     };
   },
   getters: {
@@ -19,9 +19,8 @@ const profile = {
   },
   actions: {
     async updateUsername({ commit, state }, newUsername) {
-      console.log('test');
       const user = await getUser(1);
-      console.log(newUsername);
+      commit(COMMIT_UPDATE_STATUS, user.username ? 'active' : 'inactive', { root: true });
       commit(COMMIT_UPDATE_USERNAME, user.username);
     },
   },
