@@ -32,14 +32,6 @@ export default {
     }
   },
   computed:{
-    // Se puede utilizar map state si no hay otra propiedad computada
-    /*
-     mapState({
-     username: (state) => state.username
-     })
-     */
-    // Para evitar inconvenientes se puede utilizar la opción shortHand donde se mapea la variable username del store
-    ...mapState (['username']),
     ...mapGetters(['getUsername'])
   }
 

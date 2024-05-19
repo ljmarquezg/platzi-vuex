@@ -1,9 +1,9 @@
 <script>
-import { mapState, mapActions } from 'vuex';
+import { mapState, mapActions, mapGetters } from 'vuex';
 
 export default {
   computed: {
-    ...mapState(['username']),
+    ...mapGetters(['getUsername']),
   },
   methods: {
     ...mapActions(['updateUsername']),
@@ -22,7 +22,7 @@ export default {
       <input
           type="text"
           placeholder="Jane Smith"
-          :value="username"
+          :value="getUsername"
           @input="updateUsername($event.target.value)"
       />
       <button @click="$router.push('/')">Acceder</button>
